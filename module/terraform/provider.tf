@@ -11,7 +11,11 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
-  region = "us-east-1"
+  region  = "us-east-1"
   profile = "devops"
+  default_tags {
+    tags = {
+      Repo = "itsmyfirstname/aws-playground"
+    }
+  }
 }
-
