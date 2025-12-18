@@ -19,6 +19,11 @@ variable "site_bucket_name" {
   default     = "mehays-site"
 }
 
+variable "viewer_cert_min_version" {
+  description = "TLS version for viewer cert"
+  type        = string
+  default     = "TLSv1"
+}
 # TrueNAS S3 Bucket Name
 variable "truenas_bucket_name" {
   description = "Name of the S3 bucket for TrueNAS backups"
@@ -37,7 +42,7 @@ variable "site_source_path" {
 variable "cloudfront_price_class" {
   description = "CloudFront distribution price class"
   type        = string
-  default     = "PriceClass_100"
+  default     = "PriceClass_All"
   validation {
     condition = contains([
       "PriceClass_All",
